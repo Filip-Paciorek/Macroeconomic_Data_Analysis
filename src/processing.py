@@ -7,7 +7,8 @@ Functions' explanation:
  * set_starting_date() - sets the date to the earlier found one 
  * turn_to_long() - transforms the df into a format better suited for merging with otherdfs
  * merge() - merges all the dfs together
-
+ * synchronise_inflation_indicators() - fixes the normalization of CPIAUCSL and PCEPI
+    
 '''
 
 import pandas as pd
@@ -55,7 +56,13 @@ def set_starting_date(dff,ahetpi,cpiaucsl,pcepi,unrate):
     pcepi = pcepi.iloc[pcepi_index:].reset_index(drop=True)
     unrate = unrate.iloc[unrate_index:].reset_index(drop=True)
     return dff,ahetpi,cpiaucsl,pcepi,unrate
-
+def synchronise_inflation_indicators(cpiaucsl):
+    base_year = '2017-01-01'
+    series_cpiaucsl = cpiaucsl.copy()
+    base_value = series_cpiaucsl.loc[series_cpiaucsl['observation_date']==base_year,'CPIAUCSL']
+    cpiaucsl['CPIAUCSL'] = (series_cpiaucsl['CPIAUCSL'] / base_value.iloc[0])*100
+    print(cpiaucsl.head())
+    return cpiaucsl
 def turn_into_long_format(dff,ahetpi,cpiaucsl,pcepi,unrate):
     dff_long = dff.rename(columns={'DFF':'value'})
     ahetpi_long = ahetpi.rename(columns={'AHETPI':'value'})
@@ -76,6 +83,7 @@ dff,ahetpi,cpiaucsl,pcepi,unrate = load_data()
 dff = normalize_dff_format(dff)
 normalize_datetype(dff,ahetpi,cpiaucsl,pcepi,unrate)
 dff,ahetpi,cpiaucsl,pcepi,unrate = set_starting_date(dff,ahetpi,cpiaucsl,pcepi,unrate)
+cpiaucsl = synchronise_inflation_indicators(cpiaucsl)
 dff_long,ahetpi_long,cpiaucsl_long,pcepi_long,unrate_long = turn_into_long_format(dff,ahetpi,cpiaucsl,pcepi,unrate)
 df_all_long = merge(dff_long,ahetpi_long,cpiaucsl_long,pcepi_long,unrate_long)
 df_all_long.to_csv('../data/processed/dal.csv')
