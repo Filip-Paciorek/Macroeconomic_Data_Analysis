@@ -5,7 +5,7 @@ Functions' explanation:
  * normalize_dff_format() - dff was the only outlier when it comes to measurment of the data (daily vs monthly)
  * normalize_starting_point() - finds the earliest date that all datasets contain 
  * set_starting_date() - sets the date to the earlier found one 
- * turn_to_long() - transforms the df into a format better suited for merging with otherdfs
+ * turn_into_long_format() - transforms the df into a format better suited for merging with otherdfs
  * merge() - merges all the dfs together
  * synchronise_inflation_indicators() - fixes the normalization of CPIAUCSL and PCEPI
     
