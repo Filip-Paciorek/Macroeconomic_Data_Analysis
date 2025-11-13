@@ -29,11 +29,11 @@ Projekt koncentruje się na odpowiedzi na następujące pytania:
 
 1.  **Odwrócenie trendu płacowego:** Analiza dekadowa wykazała, że lata 2020. są pierwszym okresem od ponad 60 lat, w którym średni wzrost płac (znormalizowany do 2017 r.) przewyższył średnią inflację.
     
-    ![Wykres różnicy płac i inflacji](images/wykres_plac.png)
+    ![Wykres różnicy płac i inflacji](imgs/wykres_plac.png)
     
 2.  **Niestabilność Krzywej Phillipsa:** Zależność między inflacją a bezrobociem okazała się niestabilna. Była wyraźnie widoczna w latach 60., jednak w innych dekadach (np. w latach 70., okresie stagflacji) była słaba lub nie istniała. Dowodzi to, że jej występowanie zależy od szerszego kontekstu ekonomicznego.
 
-    ![Wykres Krzywej Phillipsa](images/wykres_phillips.png)
+    ![Wykres Krzywej Phillipsa](imgs/wykres_phillips.png)
 ---
 <br>
 
@@ -64,9 +64,9 @@ The project focuses on answering the following questions:
 
 1.  **Reversal of the Wage Trend:** A decadal analysis showed that the 2020s are the first period in over 60 years where average wage growth (normalized to 2017) has outpaced average inflation.
     
-    ![Difference between inflation and wage growth chart](images/wykres_plac.png)
+    ![Difference between inflation and wage growth chart](imgs/wykres_plac.png)
     
 2.  **Instability of the Phillips Curve:** The relationship between inflation and unemployment proved to be unstable. While clearly visible in the 1960s, it was weak or non-existent in other decades (e.g., during the "stagflation" of the 1970s). This suggests its validity depends on the broader economic context.
 
-    ![Visualization of the Phillips Curve by decade](images/wykres_phillips.png)
+    ![Visualization of the Phillips Curve by decade](imgs/wykres_phillips.png)
 
